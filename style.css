@@ -1,45 +1,100 @@
-/* ... previous styles remain the same ... */
-
-/* Chat box */
-.chat-box {
-  flex: 1;
-  padding: 10px;
-  overflow-y: auto;
-  color: #000; /* default black text */
+/* Sidebar */
+.sidebar {
+  background: linear-gradient(145deg, #1b5e20, #4caf50);
+  width: 250px;
+  transition: width 0.3s, background 0.3s;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  color: #fff;
+  z-index: 10;
 }
-
-body.dark-mode .chat-box {
-  color: #e0e0e0; /* visible in dark mode */
-  background: #1c1c1c; /* subtle dark background */
+.sidebar.collapsed {
+  width: 60px;
 }
-
-/* Chat messages bubbles */
-.chat-message {
-  padding: 8px 12px;
+.sidebar button {
+  width: 100%;
   margin: 5px 0;
+  padding: 10px;
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: left;
+}
+body.dark-mode .sidebar {
+  background: linear-gradient(145deg, #004d40, #00796b);
+}
+
+/* Main content adjustments */
+.main-content {
+  margin-left: 250px;
+  transition: margin-left 0.3s;
+}
+.sidebar.collapsed + .main-content {
+  margin-left: 60px;
+}
+
+/* Hero image overlay */
+.hero-overlay {
+  position: absolute;
+  top:0; left:0; width:100%; height:100%;
+  background: rgba(255,255,255,0.3);
+  display:flex; flex-direction:column; justify-content:center; align-items:center;
+  text-align:center;
+}
+body.dark-mode .hero-overlay {
+  background: rgba(0,0,0,0.3);
+}
+
+/* Dark mode for input */
+body.dark-mode input#user-input {
+  background: #1c1c1c;
+  color: #fff;
+}
+
+/* Chat Panel */
+.chat-panel {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
   border-radius: 12px;
-  max-width: 75%;
-  word-wrap: break-word;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.chat-controls button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
 }
 
-.user-msg {
-  background: #a8e6cf;
-  align-self: flex-end;
-  color: #000;
+/* Input Box */
+.input-box {
+  display:flex;
+  padding: 10px;
+  background: #f0f0f0;
+}
+body.dark-mode .input-box {
+  background: #333;
+}
+.input-box input {
+  flex:1;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  margin-right:10px;
+}
+.input-box button {
+  padding:10px 15px;
+  border:none;
+  border-radius:8px;
+  background: #4caf50;
+  color:#fff;
+  cursor:pointer;
+}
+body.dark-mode .input-box button {
+  background:#66bb6a;
 }
 
-.bot-msg {
-  background: #dcedc1;
-  align-self: flex-start;
-  color: #000;
-}
-
-body.dark-mode .user-msg {
-  background: #388e3c;
-  color: #fff;
-}
-
-body.dark-mode .bot-msg {
-  background: #2e7d32;
-  color: #fff;
-}
