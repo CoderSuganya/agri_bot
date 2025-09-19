@@ -38,26 +38,19 @@ function addMessage(user, bot) {
   // Add to sidebar history
   const histItem = document.createElement("div");
   histItem.textContent = user;
+  histItem.classList.add("history-item");
   historyDiv.appendChild(histItem);
 }
 
-async function sendMessage() {
+function sendMessage() {
   const message = userInput.value.trim();
   if(!message) return;
-  addMessage(message, "..."); // placeholder bot reply
+  addMessage(message, "...");
   userInput.value = "";
 
-  // Here you can integrate Dialogflow endpoint
-  /*
-  const res = await fetch(DIALOGFLOW_ENDPOINT, {
-    method: "POST",
-    headers: {"Content-Type":"application/json"},
-    body: JSON.stringify({ message })
-  });
-  const data = await res.json();
-  const botReply = data.reply || "No response";
-  addMessage(message, botReply);
-  */
-  addMessage(message, "This is a placeholder response."); // remove when connecting Dialogflow
+  // Placeholder bot response
+  setTimeout(() => {
+    addMessage(message, "This is a placeholder response.");
+  }, 500);
 }
 
