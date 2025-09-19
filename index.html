@@ -1,39 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AgriBot - Smart Farming Assistant</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <!-- Header / Home Page -->
   <header>
     <h1>Welcome, Farmer</h1>
-    <p>How can I help you?</p>
+    <p>How can I help you today?</p>
   </header>
 
   <!-- Features Section -->
   <section class="features">
     <div class="feature">
       <h3>💡 Crop-Specific Fertilizer Advice</h3>
-      <p>Get the right fertilizer recommendations for your crop, so you can boost yield and save costs.</p>
+      <p>Get the right fertilizer recommendations for your crop, boosting yield and saving costs.</p>
     </div>
     <div class="feature">
-      <h3>🕒 Always Available, Farmer-Friendly</h3>
-      <p>No waiting for experts — the chatbot is ready 24/7 to guide you in simple, farmer-friendly language.</p>
+      <h3>🕒 Always Available</h3>
+      <p>Chatbot ready 24/7 in farmer-friendly language.</p>
     </div>
     <div class="feature">
       <h3>👌 Easy & Interactive</h3>
-      <p>Just type in your crop details, and get instant, clear advice within seconds.</p>
+      <p>Just type in your crop details and get instant advice.</p>
     </div>
     <div class="feature">
       <h3>🌦️ Weather Prediction & Alerts</h3>
-      <p>Stay prepared! The chatbot warns you about upcoming bad weather so you can protect your crops in time.</p>
+      <p>Stay prepared! The bot warns about upcoming bad weather.</p>
     </div>
   </section>
 
-  <!-- Chat Interface -->
+  <!-- Chat Container -->
   <div class="chat-container">
     <!-- Sidebar -->
     <div class="sidebar">
@@ -41,7 +42,7 @@
       <div id="history"></div>
     </div>
 
-    <!-- Chat panel -->
+    <!-- Chat Panel -->
     <div class="chat-panel">
       <div class="chat-header">
         <h2>AgriBot Chat</h2>
@@ -52,12 +53,13 @@
       </div>
       <div id="chat-box" class="chat-box"></div>
       <div class="input-box">
-        <input type="text" id="user-input" placeholder="Type your message..." />
+        <input type="text" id="user-input" placeholder="Type your message...">
         <button id="send-btn">Send</button>
       </div>
     </div>
   </div>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
+
