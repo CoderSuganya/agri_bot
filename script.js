@@ -7,19 +7,20 @@ const chatPanel = document.querySelector(".chat-panel");
 const newChatBtn = document.getElementById("new-chat");
 const historyDiv = document.getElementById("history");
 
-const DIALOGFLOW_ENDPOINT = "YOUR_DIALOGFLOW_ENDPOINT";
+// Placeholder for your Dialogflow endpoint
+const DIALOGFLOW_ENDPOINT = "YOUR_DIALOGFLOW_ENDPOINT_HERE";
 
-// Dark/Light mode
+// Dark/Light Mode Toggle
 toggleMode.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
 });
 
-// Expand chat
+// Expand Chat
 expandBtn.addEventListener("click", () => {
   chatPanel.classList.toggle("fullscreen");
 });
 
-// New chat
+// New Chat
 newChatBtn.addEventListener("click", () => {
   chatBox.innerHTML = "";
 });
@@ -27,7 +28,7 @@ newChatBtn.addEventListener("click", () => {
 // Send message
 sendBtn.addEventListener("click", sendMessage);
 userInput.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") sendMessage();
+  if(e.key === "Enter") sendMessage();
 });
 
 function addMessage(user, bot) {
@@ -37,17 +38,16 @@ function addMessage(user, bot) {
   chatBox.appendChild(div);
   chatBox.scrollTop = chatBox.scrollHeight;
 
-  // Add to sidebar history
+  // Add to history
   const hist = document.createElement("div");
   hist.textContent = user;
   hist.classList.add("history-item");
   historyDiv.appendChild(hist);
 }
 
-// Send message to Dialogflow
 async function sendMessage() {
   const message = userInput.value.trim();
-  if (!message) return;
+  if(!message) return;
   addMessage(message, "...");
   userInput.value = "";
 
@@ -55,12 +55,12 @@ async function sendMessage() {
     const res = await fetch(DIALOGFLOW_ENDPOINT, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message }),
+      body: JSON.stringify({ message })
     });
     const data = await res.json();
     const botReply = data.reply || "No response from bot.";
     addMessage(message, botReply);
-  } catch (err) {
+  } catch(err) {
     addMessage(message, "Error connecting to Dialogflow.");
   }
 }
