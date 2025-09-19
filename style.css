@@ -2,9 +2,10 @@
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
-  background: #eaf5ea; /* soft green background */
+  background: #eaf5ea;
   color: #222;
   transition: background 0.3s, color 0.3s;
+  display: flex;
 }
 
 /* Dark Mode */
@@ -13,39 +14,95 @@ body.dark-mode {
   color: #eee;
 }
 
-/* Header / Hero */
-header {
-  text-align: center;
-  padding: 50px 20px;
-  background: linear-gradient(135deg, #4caf50, #81c784);
+/* Sidebar */
+.sidebar {
+  width: 70px;
+  background: #4caf50;
   color: white;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s;
+  position: fixed;
+  height: 100vh;
+}
+.sidebar.expanded {
+  width: 250px;
+}
+.sidebar-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 22px;
+  margin: 10px;
+  cursor: pointer;
+}
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.sidebar button {
+  background: none;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.sidebar button:hover {
+  background: rgba(255,255,255,0.2);
+}
+.recent-chats {
+  margin-top: 20px;
+  padding: 0 10px;
+}
+#history {
+  margin-top: 10px;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 70px;
+  padding: 20px;
+  width: calc(100% - 70px);
+  transition: margin-left 0.3s, width 0.3s;
+}
+.sidebar.expanded ~ .main-content {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 40px 20px;
 }
 .hero-img {
-  width: 150px;
+  width: 180px;
   margin-top: 20px;
-  opacity: 0.9;
 }
 
 /* Features Section */
 .features {
+  margin: 30px auto;
   display: flex;
   flex-wrap: wrap;
+  gap: 20px;
   justify-content: center;
-  gap: 25px;
-  padding: 30px;
 }
 .feature {
-  flex: 1 1 260px;
-  background: #ffffff;
-  border-radius: 15px;
-  padding: 25px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
+  flex: 1 1 250px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 .feature:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 body.dark-mode .feature {
   background: #2c2c2c;
@@ -54,45 +111,29 @@ body.dark-mode .feature {
 
 /* Chat Container */
 .chat-container {
+  margin-top: 40px;
   display: flex;
-  max-width: 1000px;
-  margin: 40px auto;
-  height: 550px;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  justify-content: center;
 }
-
-/* Sidebar */
-.sidebar {
-  width: 270px;
-  background: #d9f2d9; /* light green sidebar */
-  padding: 15px;
-  border-right: 1px solid #ccc;
-  overflow-y: auto;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
-}
-body.dark-mode .sidebar {
-  background: #2c2c2c;
-}
-#history {
-  margin-top: 10px;
-}
-
-/* Chat Panel */
 .chat-panel {
-  flex: 1;
+  width: 100%;
+  max-width: 600px;
+  background: #f0fff0;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
-  position: relative;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+body.dark-mode .chat-panel {
+  background: #222;
 }
 .chat-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
+  padding: 12px 20px;
   background: #c8e6c9;
+  border-radius: 12px 12px 0 0;
 }
 body.dark-mode .chat-header {
   background: #333;
@@ -101,32 +142,33 @@ body.dark-mode .chat-header {
   flex: 1;
   padding: 15px;
   overflow-y: auto;
-  background: #f0fff0;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-}
-body.dark-mode .chat-box {
-  background: #222;
+  min-height: 200px;
 }
 .input-box {
   display: flex;
+  padding: 10px;
 }
 input[type="text"] {
   flex: 1;
   padding: 12px;
-  font-size: 16px;
-  border-radius: 0 0 0 10px;
+  border-radius: 8px 0 0 8px;
   border: 1px solid #ccc;
+  font-size: 16px;
+  background: rgba(255,255,255,0.8);
+}
+input::placeholder {
+  color: #666;
+  font-style: italic;
 }
 button {
   padding: 12px 20px;
-  margin-left: 5px;
-  cursor: pointer;
   border: none;
   background: #4caf50;
   color: white;
-  border-radius: 0 0 10px 0;
-  transition: all 0.3s ease;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.3s;
 }
 button:hover {
   background: #43a047;
@@ -139,6 +181,6 @@ button:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 999;
   border-radius: 0;
+  z-index: 999;
 }
