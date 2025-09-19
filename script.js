@@ -25,7 +25,7 @@ toggleModeBtn.addEventListener('click', () => {
   }
 });
 
-// Dummy chat input (for UI demo)
+// Dummy chat input (UI demo)
 const sendBtn = document.getElementById('send-btn');
 const userInput = document.getElementById('user-input');
 const chatBox = document.getElementById('chat-box');
