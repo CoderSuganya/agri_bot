@@ -8,6 +8,9 @@
 </head>
 <body>
 
+<!-- Dark/Light toggle button top-right -->
+<button id="toggle-mode" class="mode-toggle">🌙</button>
+
 <!-- Sidebar -->
 <div class="sidebar" id="sidebar">
   <button class="sidebar-toggle" id="toggle-sidebar">☰</button>
@@ -28,7 +31,7 @@
   <section class="hero">
     <img src="./rice-fields.jpg" alt="Farming Illustration" class="hero-img">
     <div class="hero-overlay">
-      <h1>Welcome, Farmer</h1>
+      <h1><span class="welcome">Welcome</span>, <span class="farmer">Farmer</span></h1>
       <p>How can I help you today?</p>
     </div>
   </section>
@@ -61,7 +64,6 @@
         <h2>AgriBot Chat</h2>
         <div class="chat-controls">
           <button id="expand">🗖</button>
-          <button id="toggle-mode">🌙</button>
         </div>
       </div>
       <div class="chat-box" id="chat-box"></div>
