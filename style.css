@@ -1,25 +1,30 @@
-/* General Styles */
+/* General */
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
-  background: #f0f2f5;
+  background: #eaf5ea; /* soft green background */
   color: #222;
   transition: background 0.3s, color 0.3s;
 }
 
 /* Dark Mode */
 body.dark-mode {
-  background: #1f1f1f;
+  background: #1e1e1e;
   color: #eee;
 }
 
-/* Header */
+/* Header / Hero */
 header {
   text-align: center;
-  padding: 40px 20px;
-  background: #4CAF50;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #4caf50, #81c784);
   color: white;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+}
+.hero-img {
+  width: 150px;
+  margin-top: 20px;
+  opacity: 0.9;
 }
 
 /* Features Section */
@@ -27,19 +32,20 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
-  padding: 20px;
+  gap: 25px;
+  padding: 30px;
 }
 .feature {
-  flex: 1 1 250px;
-  background: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: background 0.3s, color 0.3s, transform 0.2s;
+  flex: 1 1 260px;
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
 }
 .feature:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
 }
 body.dark-mode .feature {
   background: #2c2c2c;
@@ -51,19 +57,21 @@ body.dark-mode .feature {
   display: flex;
   max-width: 1000px;
   margin: 40px auto;
-  height: 500px;
-  border-radius: 10px;
+  height: 550px;
+  border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
 /* Sidebar */
 .sidebar {
-  width: 250px;
-  background: #e9ecef;
-  padding: 10px;
+  width: 270px;
+  background: #d9f2d9; /* light green sidebar */
+  padding: 15px;
   border-right: 1px solid #ccc;
   overflow-y: auto;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 body.dark-mode .sidebar {
   background: #2c2c2c;
@@ -83,42 +91,45 @@ body.dark-mode .sidebar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  background: #dfe6e9;
+  padding: 15px;
+  background: #c8e6c9;
 }
 body.dark-mode .chat-header {
   background: #333;
 }
 .chat-box {
   flex: 1;
-  padding: 10px;
+  padding: 15px;
   overflow-y: auto;
-  background: #fafafa;
+  background: #f0fff0;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
 }
 body.dark-mode .chat-box {
   background: #222;
 }
 .input-box {
   display: flex;
-  border-top: 1px solid #ccc;
 }
 input[type="text"] {
   flex: 1;
-  padding: 10px;
+  padding: 12px;
   font-size: 16px;
+  border-radius: 0 0 0 10px;
+  border: 1px solid #ccc;
 }
 button {
-  padding: 10px 15px;
+  padding: 12px 20px;
   margin-left: 5px;
   cursor: pointer;
   border: none;
-  background: #4CAF50;
+  background: #4caf50;
   color: white;
-  border-radius: 5px;
-  transition: background 0.3s;
+  border-radius: 0 0 10px 0;
+  transition: all 0.3s ease;
 }
 button:hover {
-  background: #45a049;
+  background: #43a047;
 }
 
 /* Fullscreen Chat */
